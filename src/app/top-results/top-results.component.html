@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Search music</h1>
+    <div class="form-group">
+    <input type="text" class="form-control" 
+    (keyup)="searchMus(searchArt.value)" 
+    [(ngModel)]="searchStr" placeholder="Search music..." #searchArt>
+    <!-- <button class="btn btn-secondary" (click)="getSinger()">Search</button> -->
+</div>
+</div>
+<div *ngIf ="artists" class="container">
+    <div *ngFor = "let artist of artists">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="search-res well only-show-on-hover">        
+                    <h4 >
+                        <img *ngIf="artist.images[0]" src="{{artist.images[0].url}}" width="50" height="50">  
+                        {{artist.name}}</h4>
+                    <span>Genre:<p>{{artist.genres[0]}}</p></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
